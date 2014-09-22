@@ -1,7 +1,33 @@
 Projects list
 
-<ul>
-    <li ng-repeat="project in projects">
-        {{project.name}}
-    </li>
-</ul>
+<!--<ul>-->
+    <!--<li ng-repeat="project in projects">-->
+
+        <!--<h1>{{project.Name}}</h1>-->
+        <!--<ul>-->
+            <!--<li ng-repeat="allocation in project.Allocations">-->
+                <!--{{allocation.LastName}} {{allocation.FirstName}}-->
+            <!--</li>-->
+        <!--</ul>-->
+
+
+    <!--</li>-->
+<!--</ul>-->
+
+
+
+<div ng-repeat="project in projects">
+    <div class="panel panel-default">
+        <div class="panel-heading">{{project.Name}}</div>
+        <div class="panel-body">
+            <div class="row">
+                <div ng-repeat="resources in project.Allocations" class="col-md-3">
+                    <img style="width:100px;" class="img-thumbnail"
+                         ng-src="https://my.infusion.com/User%20Photos/Profile%20Pictures/corp_{{resources.FirstName| limitTo:1|lowercase}}{{resources.LastName}}_LThumb.jpg">
+                    <span>{{resources.FirstName}}</span>
+                    <span>{{resources.LastName}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
