@@ -9,7 +9,7 @@
                 <div class="panel-heading">
                     <h4 class="panel-title">
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Search"
+                            <input type="text" class="form-control" ng-model="search.fraze" placeholder="Search"
                                    name="q">
 
                             <div class="input-group-btn">
@@ -36,11 +36,11 @@
             </div>
 
         </div>
-        <input type="text" class="form-control" ng-model="empname" placeholder="Search">
+
 
     </div>
 
-    <div id="page-content-wrapper" ng-repeat="project in projects">
+    <div id="page-content-wrapper" ng-repeat="project in projects" ng-show="([project] | filterProjects:search).length">
         <div class="panel panel-default">
             <div class="panel-heading">{{project.Name}}</div>
             <div class="panel-body">
@@ -49,7 +49,6 @@
                         <img style="width:100px;" class="img-thumbnail"
                              ng-src="https://my.infusion.com/User%20Photos/Profile%20Pictures/corp_{{resources.Login}}_LThumb.jpg">
                         <span>{{resources.FirstName}}&nbsp;{{resources.LastName}}</span>
-
 
                     </div>
                 </div>
