@@ -15,7 +15,7 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-3 col-md-3">
-            <div class="panel-group" id="accordion">
+            <div class="panel-group">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
@@ -41,12 +41,16 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-9 col-md-9">
+        <div id="accordion" class="col-sm-9 col-md-9 panel-group">
             <div ng-repeat="project in projects" class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">{{project.Name}}</h3>
+                    <h3 class="panel-title" data-toggle="collapse" data-parent="#accordion" data-target="#{{project.Code}}">
+                        <a data-toggle="collapse" data-target="#{{project.Code}}">
+                            {{project.Name}}
+                        </a>
+                    </h3>
                 </div>
-                <div class="panel-body">
+                <div id="{{project.Code}}" class="panel-collapse collapse">
                     <div class="row">
                         <div ng-repeat="resources in project.Allocations" class="col-md-3">
                             <img style="width:100px;" class="img-thumbnail"
