@@ -34,8 +34,13 @@
 
     </div>
 
-    <div id="page-content-wrapper" class="row">
+<<<<<<< HEAD
+    <div id="page-content-wrapper" >
         <div ng-repeat="project in projects" ng-show="project.visible">
+=======
+    <div id="page-content-wrapper" class="row">
+        <div class="col-md-4" ng-repeat="project in projects" ng-show="([project] | filterProjects:search).length">
+>>>>>>> 9673f85fd0ef230132ce0f565c286fc36d7bc3e9
             <div class="panel panel-default">
                 <div class="project-header panel-heading collapsed" data-toggle="collapse" data-target="#{{project.Code}}">
                     {{project.Name}}

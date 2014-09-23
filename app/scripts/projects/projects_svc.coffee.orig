@@ -1,16 +1,37 @@
 angular.module('muppetshowApp')
+<<<<<<< HEAD
 .factory 'ProjectsSvc', ($http, $q) ->
   class ProjectSvc
     all: ->
       @projects
-    offices:->
-        offices = _.sortBy(_.uniq(_.pluck(_.flatten(_.pluck(this.projects, "Allocations")), "Office")))
 
     active: ->
       active = @projects.where(ProjectStage: 'In Progress')
       active.each((p)->
         p.Allocations = p.Allocations.filter((a)->
           a.EndDate > new Date()
+=======
+  .factory 'ProjectsSvc', ($http, $q) ->
+    class ProjectSvc
+      all:->
+        this.projects
+      active:->
+        active = _.where(this.projects, ProjectStage: 'In Progress')
+      offices:->
+        offices = _.sortBy(_.uniq(_.pluck(_.flatten(_.pluck(this.projects, "Allocations")), "Office")))
+
+
+
+      filterBy:(fraze) ->
+        fraze = fraze.toLowerCase()
+        items = @active()
+        return items unless fraze
+        _.filter(items, (p)->
+          users = _.filter(p.Allocations, ( (e)->
+            e.FirstName.toLowerCase().indexOf(fraze) > -1 or e.LastName.toLowerCase().indexOf(fraze) > -1
+          ))
+          return users != undefined and users.length != 0
+>>>>>>> 9673f85fd0ef230132ce0f565c286fc36d7bc3e9
         )
       )
       active = active.filter((p)-> p.Allocations.length > 0)

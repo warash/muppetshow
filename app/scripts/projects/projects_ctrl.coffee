@@ -5,6 +5,7 @@ angular.module('muppetshowApp')
     ProjectsSvc.fetchProjects().then(->
       $activityIndicator.stopAnimating()
       $scope.projects = ProjectsSvc.active()
+      $scope.offices = ProjectsSvc.offices()
       $scope.search =
         fraze: ''
 
