@@ -1,5 +1,3 @@
-Projects list
-
 <!--<ul>-->
     <!--<li ng-repeat="project in projects">-->
 
@@ -14,18 +12,49 @@ Projects list
     <!--</li>-->
 <!--</ul>-->
 
-
-
-<div ng-repeat="project in projects">
-    <div class="panel panel-default">
-        <div class="panel-heading">{{project.Name}}</div>
-        <div class="panel-body">
-            <div class="row">
-                <div ng-repeat="resources in project.Allocations" class="col-md-3">
-                    <img style="width:100px;" class="img-thumbnail"
-                         ng-src="https://my.infusion.com/User%20Photos/Profile%20Pictures/corp_{{resources.FirstName| limitTo:1|lowercase}}{{resources.LastName}}_LThumb.jpg">
-                    <span>{{resources.FirstName}}</span>
-                    <span>{{resources.LastName}}</span>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3 col-md-3">
+            <div class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search" name="q">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                                </div>
+                            </div>
+                        </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in">
+                        <ul class="list-group">
+                            <li class="list-group-item"><span class="text-primary"></span> <a>Offices</a>
+                                <ul class="list-group">
+                                    <li class="list-group-item"><span class="text-primary"></span> <a>Toronto</a></li>
+                                    <li class="list-group-item"><span class="text-success"></span> <a>New York</a></li>
+                                    <li class="list-group-item"><span class="text-warning"></span> <a>Krakow</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-9 col-md-9">
+            <div ng-repeat="project in projects" class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{project.Name}}</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div ng-repeat="resources in project.Allocations" class="col-md-3">
+                            <img style="width:100px;" class="img-thumbnail"
+                                 ng-src="https://my.infusion.com/User%20Photos/Profile%20Pictures/corp_{{resources.FirstName| limitTo:1|lowercase}}{{resources.LastName}}_LThumb.jpg">
+                            <span>{{resources.FirstName}}</span>
+                            <span>{{resources.LastName}}</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
