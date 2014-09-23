@@ -1,44 +1,34 @@
-
 angular.module('muppetshowApp')
-  .factory 'ProjectsSvc', ($http, $q) ->
-    class ProjectSvc
-      all:->
-        this.projects
-      active:->
-        active = _.where(this.projects, ProjectStage: 'In Progress')
-      offices:->
+.factory 'ProjectsSvc', ($http, $q) ->
+  class ProjectSvc
+    all: ->
+      @projects
+    offices:->
         offices = _.sortBy(_.uniq(_.pluck(_.flatten(_.pluck(this.projects, "Allocations")), "Office")))
 
-
-
-      filterBy:(fraze) ->
-        fraze = fraze.toLowerCase()
-        items = @active()
-        return items unless fraze
-        _.filter(items, (p)->
-          users = _.filter(p.Allocations, ( (e)->
-            e.FirstName.toLowerCase().indexOf(fraze) > -1 or e.LastName.toLowerCase().indexOf(fraze) > -1
-          ))
-          return users != undefined and users.length != 0
+    active: ->
+      active = @projects.where(ProjectStage: 'In Progress')
+      active.each((p)->
+        p.Allocations = p.Allocations.filter((a)->
+          a.EndDate > new Date()
         )
-      fetchProjects : ->
-        reutrn $q.defer().resolve(this.projects) if this.projects
-        $http.get('data/projects.json').then((resp)=>
-          this.projects = resp.data )
+      )
+      active = active.filter((p)-> p.Allocations.length > 0)
+      active
 
-    new ProjectSvc
+    parse:(projects)->
+      projects.each((p)->
+        p.Allocations.each((a)->
+          a.StartDate = Date.parse(a.StartDate)
+          a.EndDate = Date.parse(a.EndDate)
+        )
+      )
+    fetchProjects: ->
+      reutrn $q.defer().resolve(this.projects) if this.projects
+      $http.get('data/projects.json').then((resp)=>
+        this.projects = @parse(resp.data))
 
-angular.module('muppetshowApp').filter "filterProjects", ->
-  (items, search) ->
-    return items  unless search?.fraze
-    fraze = search.fraze.toLowerCase()
-    return items unless fraze
-    _.filter(items, (p)->
-      users = _.filter(p.Allocations, ( (e)->
-        e.FirstName.toLowerCase().indexOf(fraze) > -1 or e.LastName.toLowerCase().indexOf(fraze) > -1
-      ))
-      return users != undefined and users.length != 0
-    )
+  new ProjectSvc
 
 
 

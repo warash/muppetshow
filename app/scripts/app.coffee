@@ -6,7 +6,8 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'angular-underscore'
+    'angular-underscore',
+    'ngActivityIndicator'
   ])
   .config ($routeProvider) ->
     $routeProvider

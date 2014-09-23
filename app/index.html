@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" style="height: 100%">
 <head>
     <meta charset="utf-8">
     <title></title>
@@ -9,22 +9,27 @@
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/ngActivityIndicator/css/ngActivityIndicator.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
 </head>
-<body ng-app="muppetshowApp">
+<body ng-app="muppetshowApp" style="height: 100%">
 <!--[if lt IE 7]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
 <![endif]-->
 
 
-<div >
+<div style="height: 100%">
+    <div ng-show="AILoading" style="background-color: #e74c3c; height: 100%; width: 100%">
 
-    <div ng-view="" ></div>
+        <div ng-activity-indicator="CircledWhite"></div>
+    </div>
+
+    <div ng-hide="AILoading" ng-view=""></div>
 
 </div>
 
@@ -67,10 +72,12 @@
 <script src="bower_components/angular-route/angular-route.js"></script>
 <script src="bower_components/underscore/underscore.js"></script>
 <script src="bower_components/angular-underscore/angular-underscore.js"></script>
+<script src="bower_components/ngActivityIndicator/ngActivityIndicator.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 
 <!-- build:js({.tmp,app}) scripts/scripts.js -->
+<script src="scripts/utils/underscore_helper.js"></script>
 <script src="scripts/app.js"></script>
 <script src="scripts/projects/projects_svc.js"></script>
 <script src="scripts/projects/projects_ctrl.js"></script>
