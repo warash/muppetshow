@@ -7,6 +7,12 @@ angular.module('muppetshowApp')
       $scope.$watch('empname', (newV)->
         $scope.projects = ProjectsSvc.filterBy($scope.empname)
       )
+
+      $scope.visiblePersonInfo = false
+
+      $scope.showPersonInfo = (resource)->
+        $scope.selectedPerson = resource
+        $scope.visiblePersonInfo = true
     )
 
 

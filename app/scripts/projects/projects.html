@@ -40,20 +40,37 @@
 
     </div>
 
-    <div id="page-content-wrapper" ng-repeat="project in projects">
-        <div class="panel panel-default">
-            <div class="panel-heading">{{project.Name}}</div>
-            <div class="panel-body">
-                <div class="row">
-                    <div ng-repeat="resources in project.Allocations" class="col-md-3">
-                        <img style="width:100px;" class="img-thumbnail"
-                             ng-src="https://my.infusion.com/User%20Photos/Profile%20Pictures/corp_{{resources.Login}}_LThumb.jpg">
-                        <span>{{resources.FirstName}}&nbsp;{{resources.LastName}}</span>
-
-
+    <div class="row">
+        <div class="col-md-10">
+            <div id="page-content-wrapper" ng-repeat="project in projects">
+                <div class="panel panel-default">
+                    <div class="panel-heading">{{project.Name}}</div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div ng-repeat="resource in project.Allocations" class="col-md-3">
+                                <img style="width:100px; cursor:pointer" class="img-thumbnail" ng-click="showPersonInfo(resource)"
+                                     ng-src="https://my.infusion.com/User%20Photos/Profile%20Pictures/corp_{{resource.Login}}_LThumb.jpg"
+                                     href="#modal" data-toggle="modal">
+                                <span>{{resource.FirstName}}&nbsp;{{resource.LastName}}</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <div id="personInfo-wrapper">
+        <div ng-show="visiblePersonInfo" class="person-Info">
+            <p></p>
+            <p></p>
+            <p>First name: {{ selectedPerson.FirstName }}</p>
+            <p>Second name: {{ selectedPerson.LastName }}</p>
+            <p>Office: {{ selectedPerson.Office }}</p>
+            <p>Role: {{ selectedPerson.Role }}</p>
+            <p>StartDate: {{ selectedPerson.StartDate | date:'yyyy-MM-dd'}}</p>
+            <p>Login: {{ selectedPerson.Login }}</p>
+        </div>
+    </div>
+
 </div>
