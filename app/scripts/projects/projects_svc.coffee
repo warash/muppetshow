@@ -6,7 +6,9 @@ angular.module('muppetshowApp')
         this.projects
       active:->
         active = _.where(this.projects, ProjectStage: 'In Progress')
-        
+      offices:->
+        offices = _.sortBy(_.uniq(_.pluck(_.flatten(_.pluck(this.projects, "Allocations")), "Office")))
+
 
 
       filterBy:(fraze) ->

@@ -13,14 +13,16 @@
                 </div>
                 <div id="collapseOne" class="panel-collapse collapse in">
                     <ul class="list-group">
-                        <li class="list-group-item"><span class="text-primary"></span> <a>Offices</a>
+                        <li class="panel-heading list-group-item">
+                            <span>Offices</span>
                             <ul class="list-group">
-                                <li class="list-group-item"><span
-                                        class="text-primary"></span> <a>Toronto</a></li>
-                                <li class="list-group-item"><span
-                                        class="text-success"></span> <a>New York</a></li>
-                                <li class="list-group-item"><span
-                                        class="text-warning"></span> <a>Krakow</a></li>
+                                <li class="list-group-item" ng-repeat="office in offices">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox"> {{office}}
+                                        </label>
+                                    </div>
+                                </li>
                             </ul>
                         </li>
                     </ul>
