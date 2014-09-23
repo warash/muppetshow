@@ -32,24 +32,28 @@
 
     </div>
 
-    <div id="page-content-wrapper" ng-repeat="project in projects" ng-show="([project] | filterProjects:search).length">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title" data-toggle="collapse" data-target="#{{project.Code}}">
-                    {{project.Name}}
-                </h3>
-            </div>
-            <div id="{{project.Code}}" class="panel-body panel-collapse collapse">
-                <div class="row">
-                    <div ng-repeat="resources in project.Allocations" class="col-md-2">
-                        <img style="width:100px;" class="img-thumbnail"
-                             err-src="http://www.railforums.co.uk/customavatars/avatar113_1.gif"
-                             ng-src="https://my.infusion.com/User%20Photos/Profile%20Pictures/corp_{{resources.Login}}_LThumb.jpg">
-                        <span>{{resources.FirstName}}&nbsp;{{resources.LastName}}</span>
+    <div id="page-content-wrapper" >
+        <div ng-repeat="project in projects" ng-show="([project] | filterProjects:search).length">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title" data-toggle="collapse" data-target="#{{project.Code}}">
+                        {{project.Name}}
+                    </h3>
+                </div>
+                <div id="{{project.Code}}" class="panel-body panel-collapse collapse">
+                    <div class="row">
+                        <div ng-repeat="resources in project.Allocations" class="col-md-2">
+                            <img style="width:100px;" class="img-thumbnail"
+                                 err-src="http://www.railforums.co.uk/customavatars/avatar113_1.gif"
+                                 ng-src="https://my.infusion.com/User%20Photos/Profile%20Pictures/corp_{{resources.Login}}_LThumb.jpg">
+                            <span>{{resources.FirstName}}&nbsp;{{resources.LastName}}</span>
 
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
+
 </div>
