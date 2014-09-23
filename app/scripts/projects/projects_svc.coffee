@@ -5,7 +5,9 @@ angular.module('muppetshowApp')
       all:->
         this.projects
       active:->
-        _.where(this.projects, ProjectStage: 'In Progress')
+        active = _.where(this.projects, ProjectStage: 'In Progress')
+        
+
 
       filterBy:(fraze) ->
         fraze = fraze.toLowerCase()
@@ -22,8 +24,6 @@ angular.module('muppetshowApp')
         $http.get('data/projects.json').then((resp)=>
           this.projects = resp.data )
 
-
-
     new ProjectSvc
 
 angular.module('muppetshowApp').filter "filterProjects", ->
@@ -37,4 +37,6 @@ angular.module('muppetshowApp').filter "filterProjects", ->
       ))
       return users != undefined and users.length != 0
     )
+
+
 
