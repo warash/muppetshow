@@ -19,7 +19,7 @@
                                 <li class="list-group-item" ng-repeat="office in offices">
                                     <div class="checkbox">
                                         <label>
-                                            <input type="checkbox"> {{office}}
+                                            <input type="checkbox" ng-click="includeOffice('{{office}}')"> {{office}}
                                         </label>
                                     </div>
                                 </li>
@@ -35,7 +35,7 @@
     </div>
 
     <div id="page-content-wrapper" class="row">
-        <div ng-repeat="project in projects" ng-show="project.visible">
+        <div class="col-lg-4" ng-repeat="project in projects" ng-show="project.visible">
             <div class="panel panel-default">
                 <div class="project-header panel-heading collapsed" data-toggle="collapse" data-target="#{{project.Code}}">
                     {{project.Name}}
