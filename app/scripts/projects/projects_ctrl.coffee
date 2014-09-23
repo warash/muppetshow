@@ -26,7 +26,7 @@ angular.module('muppetshowApp')
       $scope.onFilter = (fraze)->
         isOfficeSelected = $scope.selectedOffices.length != 0
         $scope.projects.each((p)->
-          allocationMatch = p.Allocations.any((a)->
+          allocationMatch = p.Allocations.filter((a)->
             match =  a.FirstName.toLowerCase().indexOf(fraze) > -1
             match ||= a.LastName.toLowerCase().indexOf(fraze) > -1
             match ||= (a.FirstName + ' ' + a.LastName).toLowerCase().indexOf(fraze) > -1
@@ -39,9 +39,9 @@ angular.module('muppetshowApp')
           projMatch = p.Name.toLowerCase().indexOf(fraze) > -1
 
           if isOfficeSelected
-            p.visible = allocationMatch
+            p.visible = allocationMatch?.length
           else
-            p.visible = projMatch or allocationMatch
+            p.visible = projMatch or allocationMatch?.length
         )
 
       $scope.visiblePersonInfo = false
