@@ -17,7 +17,7 @@
                                 <li class="list-group-item" ng-repeat="office in offices">
                                     <div class="checkbox">
                                         <label>
-                                            <input type="checkbox"> {{office}}
+                                            <input type="checkbox" ng-click="includeOffice('{{office}}')"> {{office}}
                                         </label>
                                     </div>
                                 </li>
