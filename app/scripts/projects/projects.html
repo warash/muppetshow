@@ -32,8 +32,8 @@
 
     </div>
 
-    <div id="page-content-wrapper" >
-        <div ng-repeat="project in projects" ng-show="([project] | filterProjects:search).length">
+    <div id="page-content-wrapper" class="row">
+        <div class="col-md-4" ng-repeat="project in projects" ng-show="([project] | filterProjects:search).length">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title" data-toggle="collapse" data-target="#{{project.Code}}">
