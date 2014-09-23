@@ -3,6 +3,7 @@ angular.module('muppetshowApp')
   class ProjectSvc
     all: ->
       @projects
+
     active: ->
       active = @projects.where(ProjectStage: 'In Progress')
       active.each((p)->
