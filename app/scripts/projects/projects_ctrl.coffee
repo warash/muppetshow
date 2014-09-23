@@ -4,12 +4,12 @@ angular.module('muppetshowApp')
     ProjectsSvc.fetchProjects().then(->
       $scope.projects = ProjectsSvc.active()
       $scope.search =
-        fraze: 'majewski'
+        fraze: ''
 
-#
-#      $scope.$watch('empname', (newV)->
-#        $scope.projects = ProjectsSvc.filterBy($scope.empname)
-#      )
+
+      $scope.$watch('search.fraze', (fraze)->
+        console.log(fraze)
+      )
     )
 
 
