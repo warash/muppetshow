@@ -1,7 +1,9 @@
 
 angular.module('muppetshowApp')
-.controller 'ProjectsCtrl', ($scope, ProjectsSvc) ->
+.controller 'ProjectsCtrl', ($scope, ProjectsSvc, $activityIndicator) ->
+    $activityIndicator.startAnimating()
     ProjectsSvc.fetchProjects().then(->
+      $activityIndicator.stopAnimating()
       $scope.projects = ProjectsSvc.active()
       $scope.search =
         fraze: ''

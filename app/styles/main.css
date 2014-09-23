@@ -249,3 +249,11 @@
 .selected{
     background-color: lightskyblue;
 }
+
+.ai-circled{
+    margin:auto;
+}
+[ng-activity-indicator]{
+    top:0;
+    bottom:0;
+}
