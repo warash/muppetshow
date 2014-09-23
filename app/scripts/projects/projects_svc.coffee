@@ -26,5 +26,15 @@ angular.module('muppetshowApp')
 
     new ProjectSvc
 
-
+angular.module('muppetshowApp').filter "filterProjects", ->
+  (items, search) ->
+    return items  unless search?.fraze
+    fraze = search.fraze.toLowerCase()
+    return items unless fraze
+    _.filter(items, (p)->
+      users = _.filter(p.Allocations, ( (e)->
+        e.FirstName.toLowerCase().indexOf(fraze) > -1 or e.LastName.toLowerCase().indexOf(fraze) > -1
+      ))
+      return users != undefined and users.length != 0
+    )
 
