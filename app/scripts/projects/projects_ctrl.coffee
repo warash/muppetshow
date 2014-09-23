@@ -43,6 +43,14 @@ angular.module('muppetshowApp')
           else
             p.visible = projMatch or allocationMatch
         )
+
+      $scope.visiblePersonInfo = false
+
+      $scope.showPersonInfo = (resource)->
+        $scope.selectedPerson = resource
+        $scope.visiblePersonInfo = true
+        $scope.selLogin = resource.Login
+
     )
 
 
