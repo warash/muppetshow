@@ -30,6 +30,8 @@ angular.module('muppetshowApp')
       $scope.showPersonInfo = (resource)->
         $scope.selectedPerson = resource
         $scope.visiblePersonInfo = true
+        $scope.selLogin = resource.Login
+
     )
 
 
