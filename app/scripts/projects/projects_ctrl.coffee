@@ -24,6 +24,7 @@ angular.module('muppetshowApp')
       )
 
       $scope.onFilter = (fraze)->
+        $scope.visiblePersonInfo = false
         isOfficeSelected = $scope.selectedOffices.length != 0
         $scope.projects.each((p)->
           allocationMatch = p.Allocations.filter((a)->
@@ -36,6 +37,7 @@ angular.module('muppetshowApp')
 
             return match
           )
+
           officeMatch = !isOfficeSelected or p.Allocations.filter((a)->
               return $.inArray(a.Office, $scope.selectedOffices) > -1)?.length > 0
 
@@ -54,7 +56,7 @@ angular.module('muppetshowApp')
         $scope.visiblePersonInfo = true
         $scope.selLogin = resource.Login
         resource.projects =  new Array
-        $scope.projects.filter((p)->
+        ProjectsSvc.all().filter((p)->
           wasParticipating  = p.Allocations.any((a)->a.Login == resource.Login)
           resource.projects.push(p) if wasParticipating
         )

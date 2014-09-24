@@ -51,12 +51,9 @@
     </div>
 
     <div id="personInfo-wrapper">
-        <div ng-show="visiblePersonInfo" class="person-Info">
-            <p></p>
-
-            <p></p>
-
-            <p>First name: {{ selectedPerson.FirstName }}</p>
+        <header style="background-color: #f5f5f5; margin: 2px; padding: 2px; font-weight: bold">Person details</header>
+        <div ng-show="visiblePersonInfo" class="person-Info" style="margin-left: 4px;">
+            <p style="margin-top: 10px">First name: {{ selectedPerson.FirstName }}</p>
 
             <p>Second name: {{ selectedPerson.LastName }}</p>
 
@@ -70,7 +67,7 @@
 
             <p ng-show="selectedPerson.projects.length>0">Projects:</p>
             <ul ng-repeat="project in selectedPerson.projects" style="list-style-type:disc">
-                <li title="{{project.Code}}">{{project.Name}}</li>
+                <li title="{{project.Code}}">{{project.Name}}&nbsp;{{project.ProjectStage}}</li>
             </ul>
         </div>
     </div>
