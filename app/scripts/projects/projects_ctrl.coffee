@@ -24,6 +24,7 @@ angular.module('muppetshowApp')
       )
 
       $scope.onFilter = (fraze)->
+        fraze = fraze.toLowerCase()
         $scope.visiblePersonInfo = false
         isOfficeSelected = $scope.selectedOffices.length != 0
         $scope.projects.each((p)->
