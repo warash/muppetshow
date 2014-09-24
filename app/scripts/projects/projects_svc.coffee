@@ -8,6 +8,7 @@ angular.module('muppetshowApp')
 
     active: ->
       active = @projects.where(ProjectStage: 'In Progress')
+      active = JSON.parse(JSON.stringify(active))
       active.each((p)->
         p.Allocations = p.Allocations.filter((a)->
           a.EndDate > new Date()
