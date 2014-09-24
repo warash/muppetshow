@@ -31,6 +31,8 @@ angular.module('muppetshowApp')
             match ||= a.LastName.toLowerCase().indexOf(fraze) > -1
             match ||= (a.FirstName + ' ' + a.LastName).toLowerCase().indexOf(fraze) > -1
             a.selected = fraze?.length and match
+            if a.selected
+              $scope.showPersonInfo(a)
 
             return match
           )
@@ -40,6 +42,9 @@ angular.module('muppetshowApp')
           projMatch = p.Name.toLowerCase().indexOf(fraze) > -1
 
           p.visible = officeMatch and (projMatch or allocationMatch?.length)
+          if fraze?.length > 0 and allocationMatch?.length > 0
+            $scope.collapseAll()
+            $scope.$watch('isCollapse', -> p.isCollapse = false)
         )
 
       $scope.visiblePersonInfo = false
@@ -54,6 +59,14 @@ angular.module('muppetshowApp')
           resource.projects.push(p) if wasParticipating
         )
 
+      $scope.collapse = (resource)->
+        resource.isCollapse = !resource.isCollapse
+
+      $scope.collapseAll = ()->
+        $scope.projects.each((item)->
+          item.isCollapse = true)
+
+      $scope.collapseAll()
     )
 
 
