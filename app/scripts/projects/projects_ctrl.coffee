@@ -36,6 +36,8 @@ angular.module('muppetshowApp')
 
             return match and (!isOfficeSelected or officeMatch)
           )
+          $scope.visiblePersonInfo = false
+
           projMatch = p.Name.toLowerCase().indexOf(fraze) > -1
 
           if isOfficeSelected
@@ -51,7 +53,7 @@ angular.module('muppetshowApp')
         $scope.visiblePersonInfo = true
         $scope.selLogin = resource.Login
         resource.projects =  new Array
-        $scope.projects.filter((p)->
+        ProjectsSvc.all().filter((p)->
           wasParticipating  = p.Allocations.any((a)->a.Login == resource.Login)
           resource.projects.push(p) if wasParticipating
         )
