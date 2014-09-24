@@ -287,3 +287,7 @@
     background-color: lightgray;
 }
 
+.person-tile{
+    float:left;
+    height: 100px;
+}
