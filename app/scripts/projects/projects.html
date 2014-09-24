@@ -62,6 +62,7 @@
             <p>Role: {{ selectedPerson.Role }}</p>
             <p>StartDate: {{ selectedPerson.StartDate | date:'yyyy-MM-dd'}}</p>
             <p>Login: {{ selectedPerson.Login }}</p>
+            <p>Manager: {{ selectedPerson.Manager }}</p>
             <p ng-show="selectedPerson.projects.length>0">Projects:</p>
             <ul ng-repeat="project in selectedPerson.projects" style="list-style-type:disc">
                 <li title="{{project.Code}}">{{project.Name}}&nbsp;{{project.ProjectStage}}</li>

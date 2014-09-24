@@ -34,12 +34,9 @@ angular.module('muppetshowApp')
 
             return match
           )
-<<<<<<< HEAD
           $scope.visiblePersonInfo = false
-=======
           officeMatch = !isOfficeSelected or p.Allocations.filter((a)->
               return $.inArray(a.Office, $scope.selectedOffices) > -1)?.length > 0
->>>>>>> 564240914179deadf8e703aa51397eb9a026132f
 
           projMatch = p.Name.toLowerCase().indexOf(fraze) > -1
 

@@ -25,7 +25,7 @@ angular.module('muppetshowApp')
       )
     fetchProjects: ->
       reutrn $q.defer().resolve(this.projects) if this.projects
-      $http.get('data/projects.json').then((resp)=>
+      $http.get('http://10.0.0.207/PeopleProjectsWebApi/api/values').then((resp)=>
         this.projects = @parse(resp.data))
 
   new ProjectSvc
