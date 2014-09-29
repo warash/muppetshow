@@ -46,7 +46,7 @@
     </Reference>
     <Reference Include="microsoft.xrm.sdk, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Desktop\proj\CRMService\CRMService\bin\Debug\microsoft.xrm.sdk.dll</HintPath>
+      <HintPath>..\CRMService\lib\microsoft.xrm.sdk.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
