@@ -7,16 +7,18 @@ angular.module('muppetshowApp')
         offices = _.sortBy(_.uniq(_.pluck(_.flatten(_.pluck(this.projects, "Allocations")), "Office")))
 
     active: ->
-      active = @projects.where(ProjectStage: 'In Progress')
+      active = @projects.where(ProjectStage: 'Active')
+      active = JSON.parse(JSON.stringify(active))
       active.each((p)->
         p.Allocations = p.Allocations.filter((a)->
-          a.EndDate > new Date()
+          a.IsActive == true
         )
       )
       active = active.filter((p)-> p.Allocations.length > 0)
       active
 
     parse:(projects)->
+      projects
       projects.each((p)->
         p.Allocations.each((a)->
           a.StartDate = Date.parse(a.StartDate)
@@ -25,7 +27,7 @@ angular.module('muppetshowApp')
       )
     fetchProjects: ->
       reutrn $q.defer().resolve(this.projects) if this.projects
-      $http.get('http://10.0.0.207/PeopleProjectsWebApi/api/values').then((resp)=>
+      $http.get('data/CRMProjects.json').then((resp)=>
         this.projects = @parse(resp.data))
 
   new ProjectSvc
