@@ -55,10 +55,10 @@ angular.module('muppetshowApp')
       $scope.showPersonInfo = (resource)->
         $scope.selectedPerson = resource
         $scope.visiblePersonInfo = true
-        $scope.selLogin = resource.Login
+        $scope.selLogin = resource.EmployeeId
         resource.projects =  new Array
         ProjectsSvc.all().filter((p)->
-          wasParticipating  = p.Allocations.any((a)->a.Login == resource.Login)
+          wasParticipating  = p.Allocations.any((a)->a.EmployeeId == resource.EmployeeId)
           resource.projects.push(p) if wasParticipating
         )
 
