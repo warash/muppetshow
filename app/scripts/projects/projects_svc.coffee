@@ -27,7 +27,7 @@ angular.module('muppetshowApp')
       )
     fetchProjects: ->
       reutrn $q.defer().resolve(this.projects) if this.projects
-      $http.get('data/CRMProjects.json').then((resp)=>
+      $http.get('http://10.1.70.52/muppetshow/ProjectParticipationsService.svc/projectParticipations').then((resp)=>
         this.projects = @parse(resp.data))
 
   new ProjectSvc
