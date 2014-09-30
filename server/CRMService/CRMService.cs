@@ -17,6 +17,7 @@ using CRMService.Model;
 using System.ServiceModel.Activation;
 using System.ServiceModel;
 using System.Xml.Serialization;
+using System.ServiceModel.Web;
 
 namespace CRMService
 {

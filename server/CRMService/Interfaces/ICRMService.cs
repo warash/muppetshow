@@ -15,7 +15,8 @@ namespace CRMService.Interfaces
     public interface ICRMService
     {
         [OperationContract]
-        [WebInvoke( Method = "GET", ResponseFormat = WebMessageFormat.Json, UriTemplate = "/projectParticipations", BodyStyle = WebMessageBodyStyle.Bare )]
+        [WebGet( ResponseFormat = WebMessageFormat.Json, UriTemplate = "/projectParticipations", BodyStyle = WebMessageBodyStyle.Bare )]
+        [AspNetCacheProfile( "ProjectParticipationsCache" )]
         List<ProjectParticipation> GetProjectParticipation();
     }
 }
