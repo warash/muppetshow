@@ -32,13 +32,13 @@ angular.module('muppetshowApp')
             match =  a.FirstName.toLowerCase().indexOf(fraze) > -1
             match ||= a.LastName.toLowerCase().indexOf(fraze) > -1
             match ||= (a.FirstName + ' ' + a.LastName).toLowerCase().indexOf(fraze) > -1
-            a.selected = fraze?.length and match
+            a.selected = fraze?.length > 0 and match
             if a.selected
               $scope.showPersonInfo(a)
 
             return match
           )
-          $scope.visiblePersonInfo = false
+
           officeMatch = !isOfficeSelected or p.Allocations.filter((a)->
               return $.inArray(a.Office, $scope.selectedOffices) > -1)?.length > 0
 
