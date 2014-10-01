@@ -29,6 +29,7 @@
       <xs:element minOccurs="0" name="EmployeeId" type="ser:guid" />
       <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ImageBase64" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Login" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Manager" nillable="true" type="xs:string" />

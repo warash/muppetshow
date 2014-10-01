@@ -18,6 +18,7 @@ using System.ServiceModel.Activation;
 using System.ServiceModel;
 using System.Xml.Serialization;
 using System.ServiceModel.Web;
+using System.IO;
 
 namespace CRMService
 {
@@ -83,9 +84,8 @@ namespace CRMService
                                     "ihr_lastname",
                                     "ihr_enddate",
                                     "ihr_managerid",
-                                    "ihr_office",
-                                    "emailaddress"
-                                });
+                                    "ihr_office"
+                                } );
 
                     var offices = GetOptionSet( ihr_employee.EntityLogicalName, "ihr_Office", _service );
                     var projStages = GetOptionSet( ihr_project.EntityLogicalName, "statecode", _service );
@@ -177,8 +177,7 @@ namespace CRMService
                         LastName = item.Attributes.Contains( "ihr_lastname" ) ? (string)item.Attributes["ihr_lastname"] : string.Empty,
                         EndDate = item.Attributes.Contains( "ihr_enddate" ) ? (DateTime?)item.Attributes["ihr_enddate"] : null,
                         ManagerId = item.Attributes.Contains( "ihr_managerid" ) ? ( (EntityReference)item.Attributes["ihr_managerid"] ).Id : Guid.Empty,
-                        OfficeId = item.Attributes.Contains( "ihr_office" ) ? ( (OptionSetValue)item.Attributes["ihr_office"] ).Value : -1,
-                        Email = item.Attributes.Contains( "emailaddress" ) ? (string)item.Attributes["emailaddress"] : string.Empty
+                        OfficeId = item.Attributes.Contains( "ihr_office" ) ? ( (OptionSetValue)item.Attributes["ihr_office"] ).Value : -1                        
                     };
                     employees.Add( employee );
                 }
@@ -194,8 +193,8 @@ namespace CRMService
         {
             return new crm_ProjectParticipation()
             {
-                ProjectId = item.Attributes.Contains( "ihr_projectid" ) ? ((EntityReference)item.Attributes["ihr_projectid"]).Id : Guid.Empty,
-                EmployeeId = item.Attributes.Contains( "ihr_employeeid" ) ? ((EntityReference)item.Attributes["ihr_employeeid"]).Id : Guid.Empty,
+                ProjectId = item.Attributes.Contains( "ihr_projectid" ) ? ( (EntityReference)item.Attributes["ihr_projectid"] ).Id : Guid.Empty,
+                EmployeeId = item.Attributes.Contains( "ihr_employeeid" ) ? ( (EntityReference)item.Attributes["ihr_employeeid"] ).Id : Guid.Empty,
                 ProjectParticipationId = item.Attributes.Contains( "ihr_projectparticipationid" ) ? (Guid)item.Attributes["ihr_projectparticipationid"] : Guid.Empty,
                 DateTo = item.Attributes.Contains( "ihr_dateto" ) ? (DateTime?)item.Attributes["ihr_dateto"] : null,
                 DateFrom = item.Attributes.Contains( "ihr_datefrom" ) ? (DateTime?)item.Attributes["ihr_datefrom"] : null
@@ -223,9 +222,9 @@ namespace CRMService
                 LastName = employee.LastName,
                 Manager = manager != null ? string.Format( "{0} {1}", manager.FirstName, manager.LastName ) : string.Empty,
                 Office = employee.OfficeId != -1 ? offices.FirstOrDefault( p => p.Value == employee.OfficeId ).Text : "<no assignment>",
-                Login = !string.IsNullOrEmpty( employee.Email ) ? employee.Email.Substring( 0, employee.Email.Length - 13 ) : employee.Email,
+                Login = string.Format( "{0}{1}", employee.FirstName.ToLower().Remove( 1 ), employee.LastName.IndexOf('-') != -1 ? employee.LastName.Remove( employee.LastName.IndexOf('-') ).ToLower() : employee.LastName.ToLower() ),
                 StartDate = crm_projectParticipation.DateFrom.HasValue ? crm_projectParticipation.DateFrom.Value.ToShortDateString() : string.Empty,
-                EndDate = crm_projectParticipation.DateTo.HasValue ? crm_projectParticipation.DateTo.Value.ToShortDateString() : string.Empty,
+                EndDate = crm_projectParticipation.DateTo.HasValue ? crm_projectParticipation.DateTo.Value.ToShortDateString() : string.Empty
             };
         }
 

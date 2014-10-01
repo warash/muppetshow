@@ -43,11 +43,5 @@ namespace CRMService.Model
             get;
             set;
         }
-
-        public string Email
-        {
-            get;
-            set;
-        }
     }
 }
