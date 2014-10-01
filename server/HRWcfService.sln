@@ -5,6 +5,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRMService", "CRMService\CR
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRMServiceApp", "CRMServiceApp\CRMServiceApp.csproj", "{AA6C8803-0741-4555-9E58-0473213FD8E2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientTest", "ClientTest\ClientTest.csproj", "{0E9578F7-6D4E-491B-AB68-F2F11A773CDD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AA6C8803-0741-4555-9E58-0473213FD8E2} = {AA6C8803-0741-4555-9E58-0473213FD8E2}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +24,10 @@ Global
 		{AA6C8803-0741-4555-9E58-0473213FD8E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA6C8803-0741-4555-9E58-0473213FD8E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA6C8803-0741-4555-9E58-0473213FD8E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E9578F7-6D4E-491B-AB68-F2F11A773CDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E9578F7-6D4E-491B-AB68-F2F11A773CDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E9578F7-6D4E-491B-AB68-F2F11A773CDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E9578F7-6D4E-491B-AB68-F2F11A773CDD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

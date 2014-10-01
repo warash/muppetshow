@@ -9,13 +9,14 @@ angular.module('muppetshowApp')
     active: ->
       active = @projects.where(ProjectStage: 'Active')
       active = JSON.parse(JSON.stringify(active))
+      now = new Date
+      lastMonthStart = new Date 1900+now.getYear(), now.getMonth()-1, 1
       active.each((p)->
         p.Allocations = p.Allocations.filter((a)->
-          a.IsActive == true
+          a.EndDate > lastMonthStart
         )
       )
       active = active.filter((p)-> p.Allocations.length > 0)
-      active
 
     parse:(projects)->
       projects

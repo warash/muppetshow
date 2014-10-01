@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="297a0b2c-75e7-41bb-b3b5-c276e2cb35eb" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:57098/ProjectParticipationsService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ProjectParticipationsService.xsd" MetadataType="Schema" ID="13943aae-de2a-4d3a-ba13-5fa52a77951d" SourceId="1" SourceUrl="http://localhost:57098/ProjectParticipationsService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ProjectParticipationsService.disco" MetadataType="Disco" ID="cd141f03-fd5a-48ab-bf25-7ce0106e617d" SourceId="1" SourceUrl="http://localhost:57098/ProjectParticipationsService.svc?disco" />
+    <MetadataFile FileName="ProjectParticipationsService1.xsd" MetadataType="Schema" ID="eec988c1-c45d-4bf7-9f6f-4a1a74e15974" SourceId="1" SourceUrl="http://localhost:57098/ProjectParticipationsService.svc?xsd=xsd3" />
+    <MetadataFile FileName="CRMService.wsdl" MetadataType="Wsdl" ID="b7292790-de00-4df0-a006-7e37c17ab8fb" SourceId="1" SourceUrl="http://localhost:57098/ProjectParticipationsService.svc?wsdl" />
+    <MetadataFile FileName="ProjectParticipationsService2.xsd" MetadataType="Schema" ID="708808b4-ab80-4bbc-ae03-28211fe5bbed" SourceId="1" SourceUrl="http://localhost:57098/ProjectParticipationsService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ProjectParticipationsService3.xsd" MetadataType="Schema" ID="7c1df17b-634b-4fee-a82c-af8779468508" SourceId="1" SourceUrl="http://localhost:57098/ProjectParticipationsService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

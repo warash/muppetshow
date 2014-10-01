@@ -1,67 +1,50 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CRMService.Model
 {
-    [DataContract]
-    [KnownType( typeof( List<object> ) )]
-    public class Employee
+    public class crm_Employee
     {
-        [DataMember]
         public Guid EmployeeId
         {
             get;
             set;
         }
 
-        [DataMember]
         public string FirstName
         {
             get;
             set;
         }
 
-        [DataMember]
         public string LastName
         {
             get;
             set;
         }
 
-        [DataMember]
-        public string Manager
+        public Guid? ManagerId
         {
             get;
             set;
         }
 
-        [DataMember]
-        public string Office
+        public DateTime? EndDate
         {
             get;
             set;
         }
 
-        [DataMember]
-        public string Login
+        public int? OfficeId
         {
             get;
             set;
         }
 
-        [DataMember]
-        public string StartDate
-        {
-            get;
-            set;
-        }
-
-        [DataMember]
-        public string EndDate
+        public string Email
         {
             get;
             set;
