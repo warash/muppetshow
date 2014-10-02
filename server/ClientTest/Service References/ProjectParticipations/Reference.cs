@@ -157,9 +157,6 @@ namespace ClientTest.ProjectParticipations {
         private string FirstNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ImageBase64Field;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string LastNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -219,19 +216,6 @@ namespace ClientTest.ProjectParticipations {
                 if ((object.ReferenceEquals(this.FirstNameField, value) != true)) {
                     this.FirstNameField = value;
                     this.RaisePropertyChanged("FirstName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ImageBase64 {
-            get {
-                return this.ImageBase64Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ImageBase64Field, value) != true)) {
-                    this.ImageBase64Field = value;
-                    this.RaisePropertyChanged("ImageBase64");
                 }
             }
         }

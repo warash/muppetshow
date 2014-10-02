@@ -59,13 +59,18 @@
 
             <p>Office: {{ selectedPerson.Office }}</p>
 
-            <p>Start date: {{ selectedPerson.StartDate | date:'yyyy-MM-dd'}}</p>
+            <!--<p>Start date: {{ selectedPerson.StartDate | date:'yyyy-MM-dd'}}</p>-->
 
             <p>Login: {{ selectedPerson.Login }}</p>
             <p>Manager: {{ selectedPerson.Manager }}</p>
             <p ng-show="selectedPerson.projects.length>0">Projects:</p>
             <ul ng-repeat="project in selectedPerson.projects" style="list-style-type:disc">
-                <li title="{{project.Code}}">{{project.Name}}</li>
+                <li title="{{project.Code}}">{{project.Name}}
+                <ul>
+                    <li>From:{{selectedPerson.StartDate | date:'yyyy-MM-dd'}}</li>
+                    <li>To:{{selectedPerson.EndDate | date:'yyyy-MM-dd'}}</li>
+                </ul>
+                </li>
             </ul>
         </div>
     </div>
